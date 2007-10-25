@@ -52,6 +52,7 @@ MainWindow::~MainWindow()
 void MainWindow::openDHWFile()
 {
 	QFileDialog fileDialog( this, tr( "Open DHW File" ), QDir::homePath(), tr( "DHW Files (*.DHW *.dhw)" ) );
+	fileDialog.setFileMode( QFileDialog::ExistingFile );
 
 	if( fileDialog.exec() ){
 		DHWReader reader( fileDialog.selectedFiles().first() );
@@ -63,19 +64,11 @@ void MainWindow::drawDHWFileContents( DHWReader *reader )
 {
 	QGraphicsScene *scene = new QGraphicsScene( 0.0, 0.0,
 												static_cast<double>( reader->data()->paperWidth() ),
-												static_cast<double>( reader->data()->paperWidth() ),
+												static_cast<double>( -reader->data()->paperHeight() ),
 												viewer );
 	QPainterPath *path = reader->data()->drawDHWData();
 	scene->addPath( *path );
 	viewer->getView()->setScene( scene );
-	viewer->getView()->setGeometry( 0, 0, reader->data()->paperWidth(), reader->data()->paperHeight() );
-	//viewer->getView()->scale( 0.1, 0.1 );
-	qDebug( "View x size : %f", viewer->getView()->sceneRect().x() );
-	qDebug( "View y size : %f", viewer->getView()->sceneRect().y() );
-	qDebug( "Scene x size : %f", scene->sceneRect().x() );
-	qDebug( "Scene y size : %f", scene->sceneRect().y() );
-	qDebug( "Paper width : %d", reader->data()->paperWidth() );
-	qDebug( "Paper height : %d", reader->data()->paperHeight() );
 }
 
 #include "mainwindow.moc"
