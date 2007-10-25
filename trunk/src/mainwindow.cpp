@@ -61,7 +61,10 @@ void MainWindow::openDHWFile()
 
 void MainWindow::drawDHWFileContents( DHWReader *reader )
 {
-	QGraphicsScene *scene = new QGraphicsScene( viewer );
+	QGraphicsScene *scene = new QGraphicsScene( 0.0, 0.0,
+												static_cast<double>( reader->data()->paperWidth() ),
+												static_cast<double>( reader->data()->paperWidth() ),
+												viewer );
 	QPainterPath *path = reader->data()->drawDHWData();
 	scene->addPath( *path );
 	viewer->getView()->setScene( scene );

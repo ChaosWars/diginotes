@@ -1,28 +1,34 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <!DOCTYPE KDevPrjSession>
 <KDevPrjSession>
- <DocsAndViews NumberOfDocuments="7" >
+ <DocsAndViews NumberOfDocuments="9" >
   <Doc0 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/src/digipad.h" >
    <View0 Encoding="" line="35" Type="Source" />
   </Doc0>
   <Doc1 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/src/digipad.cpp" >
    <View0 Encoding="" line="34" Type="Source" />
   </Doc1>
-  <Doc2 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/src/ui_viewer.h" >
-   <View0 Encoding="" line="33" Type="Source" />
+  <Doc2 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/src/CMakeLists.txt" >
+   <View0 Encoding="" line="10" Type="Source" />
   </Doc2>
-  <Doc3 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/src/CMakeLists.txt" >
-   <View0 Encoding="" line="4" Type="Source" />
+  <Doc3 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/src/mainwindow.cpp" >
+   <View0 Encoding="" line="67" Type="Source" />
   </Doc3>
-  <Doc4 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/src/mainwindow.cpp" >
-   <View0 Encoding="" line="0" Type="Source" />
-  </Doc4>
-  <Doc5 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/src/viewer.cpp" >
+  <Doc4 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/src/viewer.cpp" >
    <View0 Encoding="" line="25" Type="Source" />
+  </Doc4>
+  <Doc5 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/src/viewer.h" >
+   <View0 Encoding="" line="0" Type="Source" />
   </Doc5>
-  <Doc6 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/src/viewer.h" >
+  <Doc6 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/src/dhwreader.cpp" >
    <View0 Encoding="" line="0" Type="Source" />
   </Doc6>
+  <Doc7 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/COPYING" >
+   <View0 Encoding="" line="674" Type="Source" />
+  </Doc7>
+  <Doc8 NumberOfViews="1" URL="file:///home/lawrence/Projects/DigiNotes/README" >
+   <View0 Encoding="" line="3" Type="Source" />
+  </Doc8>
  </DocsAndViews>
  <pluginList>
   <kdevdebugger>
@@ -36,6 +42,9 @@
   <kdevbookmarks>
    <bookmarks/>
   </kdevbookmarks>
+  <kdevsubversion>
+   <subversion base="" />
+  </kdevsubversion>
   <kdevvalgrind>
    <executable path="" params="" />
    <valgrind path="" params="" />
