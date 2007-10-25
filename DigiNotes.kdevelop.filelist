@@ -1,9 +1,7 @@
 # KDevelop Custom Project File List
 CMakeLists.txt
-Makefile
 src
 src/CMakeLists.txt
-src/Makefile
 src/dhwdata.cpp
 src/dhwdata.h
 src/dhwreader.cpp
@@ -15,6 +13,5 @@ src/mainwindow.cpp
 src/mainwindow.h
 src/stroke.cpp
 src/stroke.h
-src/ui_viewer.h
 src/viewer.cpp
 src/viewer.h

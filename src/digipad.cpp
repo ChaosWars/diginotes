@@ -32,6 +32,12 @@ Digipad::~Digipad()
 void Digipad::wheelEvent( QWheelEvent *event )
 {
 	if( event->modifiers() == Qt::ShiftModifier ){
+		double factor = event->delta();
+		if( factor > 0 ){
+			scale( 0.2, 0.2 );
+		}else{
+			scale( 5.0, 5.0 );
+		}
 	}else
 		verticalScrollBar()->setValue( -event->delta() + verticalScrollBar()->value() );
 }
