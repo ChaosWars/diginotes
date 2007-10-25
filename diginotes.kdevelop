@@ -1,8 +1,8 @@
 <?xml version = '1.0'?>
 <kdevelop>
   <general>
-    <author/>
-    <email/>
+    <author>Lawrence Lee</author>
+    <email>valheru@facticius.net</email>
     <version>$VERSION$</version>
     <projectmanagement>KDevCustomProject</projectmanagement>
     <primarylanguage>C++</primarylanguage>
@@ -13,20 +13,21 @@
       <language>C</language>
     </secondaryLanguages>
     <projectname>DigiNotes</projectname>
-    <description/>
-    <defaultencoding/>
+    <description></description>
+    <defaultencoding></defaultencoding>
+    <versioncontrol>kdevsubversion</versioncontrol>
   </general>
   <kdevcustomproject>
     <filelistdirectory>/home/lawrence/Projects/DigiNotes</filelistdirectory>
     <run>
-      <mainprogram>/home/lawrence/Projects/DigiNotes/src/diginotes</mainprogram>
+      <mainprogram></mainprogram>
       <directoryradio>custom</directoryradio>
       <customdirectory>/home/lawrence/Projects/DigiNotes</customdirectory>
-      <programargs>/home/lawrence/Projects/DigiNotes/samples/PAGE_001.DHW</programargs>
+      <programargs></programargs>
       <terminal>false</terminal>
       <autocompile>true</autocompile>
       <envvars/>
-      <globaldebugarguments/>
+      <globaldebugarguments></globaldebugarguments>
       <globalcwd>/home/lawrence/Projects/DigiNotes/src</globalcwd>
       <useglobalprogram>false</useglobalprogram>
       <autoinstall>false</autoinstall>
@@ -40,14 +41,14 @@
       <abortonerror>false</abortonerror>
       <numberofjobs>1</numberofjobs>
       <dontact>false</dontact>
-      <makebin/>
+      <makebin></makebin>
       <selectedenvironment>default</selectedenvironment>
       <environments>
         <default/>
       </environments>
       <prio>0</prio>
-      <defaulttarget/>
-      <makeoptions/>
+      <defaulttarget></defaulttarget>
+      <makeoptions></makeoptions>
     </make>
     <filetypes>
       <filetype>*.java</filetype>
@@ -68,9 +69,9 @@
     <blacklist/>
     <other>
       <prio>0</prio>
-      <otherbin/>
-      <defaulttarget/>
-      <otheroptions/>
+      <otherbin></otherbin>
+      <defaulttarget></defaulttarget>
+      <otheroptions></otheroptions>
       <selectedenvironment>default</selectedenvironment>
       <environments>
         <default/>
@@ -144,7 +145,7 @@
       <designerpluginpaths/>
     </qt>
     <creategettersetter>
-      <prefixGet/>
+      <prefixGet></prefixGet>
       <prefixSet>set</prefixSet>
       <prefixVariable>m_,_</prefixVariable>
       <parameterName>theValue</parameterName>
@@ -163,8 +164,6 @@
       <group pattern="*.h;*.hxx" name="Header" />
       <group pattern="*.cpp;*.c;*.C;*.cxx" name="Sources" />
       <group pattern="*.ui" name="Qt Designer files" />
-      <hidenonprojectfiles>true</hidenonprojectfiles>
-      <hidenonlocation>false</hidenonlocation>
     </groups>
     <tree>
       <hidepatterns>*.o,*.lo,CVS,*~,cmake*</hidepatterns>
@@ -186,11 +185,11 @@
   </substmap>
   <kdevdebugger>
     <general>
-      <gdbpath/>
-      <dbgshell/>
-      <configGdbScript/>
-      <runShellScript/>
-      <runGdbScript/>
+      <gdbpath></gdbpath>
+      <dbgshell></dbgshell>
+      <configGdbScript></configGdbScript>
+      <runShellScript></runShellScript>
+      <runGdbScript></runGdbScript>
       <breakonloadinglibs>true</breakonloadinglibs>
       <separatetty>false</separatetty>
       <floatingtoolbar>false</floatingtoolbar>
@@ -203,8 +202,15 @@
     </display>
   </kdevdebugger>
   <ctagspart>
-    <customArguments/>
+    <customArguments></customArguments>
     <customTagfilePath>/home/lawrence/Projects/DigiNotes/tags</customTagfilePath>
     <activeTagsFiles/>
   </ctagspart>
+  <kdevdocumentation>
+    <projectdoc>
+      <docsystem></docsystem>
+      <docurl></docurl>
+      <usermanualurl></usermanualurl>
+    </projectdoc>
+  </kdevdocumentation>
 </kdevelop>
