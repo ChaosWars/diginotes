@@ -24,13 +24,24 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QPainterPath>
+#include <QToolBar>
+#include <QHBoxLayout>
 #include "mainwindow.h"
 #include "viewer.h"
+#include "editor.h"
+#include "dhwreader.h"
 
 MainWindow::MainWindow()
 {
-	viewer = new Viewer();
-	setCentralWidget( viewer );
+    setWindowTitle( "Diginotes" );
+    centerWidget = new QWidget( this );
+	viewer = new Viewer( centerWidget );
+    editor = new Editor( centerWidget );
+    layout = new QHBoxLayout( centerWidget );
+    layout->addWidget( viewer );
+    layout->addWidget( editor );
+    centerWidget->setLayout( layout );
+	setCentralWidget( centerWidget );
 	file = new QMenu( tr( "&File" ), this );
 	open = new QAction( tr( "&Open" ), file );
 	exit = new QAction( tr( "&Exit" ), file );
@@ -38,9 +49,19 @@ MainWindow::MainWindow()
 	file->addSeparator();
 	file->addAction( exit );
 	menuBar()->addMenu( file );
+    toolbar = new QToolBar();
+    toolbar->addAction( open );
+    toolbar->addSeparator();
+    QAction *fit = new QAction( tr( "F&it" ), this );
+    toolbar->addAction( fit );
+    addToolBar( toolbar );
+    statusBar();
 
 	connect( exit, SIGNAL( triggered() ), this, SLOT( close() ) );
 	connect( open, SIGNAL( triggered() ), this, SLOT( openDHWFile() ) );
+    connect( fit, SIGNAL( triggered() ), this, SLOT( fitToScreen() ) );
+
+    viewer->update();
 }
 
 MainWindow::~MainWindow()
@@ -62,6 +83,8 @@ void MainWindow::openDHWFile()
 
 void MainWindow::drawDHWFileContents( DHWReader *reader )
 {
+    viewer->setSceneWidth( reader->data()->paperWidth() );
+    viewer->setSceneHeight( reader->data()->paperHeight() );
 	QGraphicsScene *scene = new QGraphicsScene( 0.0, 0.0,
 												static_cast<double>( reader->data()->paperWidth() ),
 												static_cast<double>( -reader->data()->paperHeight() ),
@@ -69,6 +92,11 @@ void MainWindow::drawDHWFileContents( DHWReader *reader )
 	QPainterPath *path = reader->data()->drawDHWData();
 	scene->addPath( *path );
 	viewer->getView()->setScene( scene );
+}
+
+void MainWindow::fitToScreen()
+{
+    viewer->fitScene();
 }
 
 #include "mainwindow.moc"

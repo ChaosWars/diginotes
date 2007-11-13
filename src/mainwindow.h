@@ -22,11 +22,14 @@
 #define _MAINWINDOW_H_
 
 #include <QMainWindow>
-#include "dhwreader.h"
 
 class QMenu;
 class QAction;
+class QHBoxLayout;
+class QToolBar;
+class DHWReader;
 class Viewer;
+class Editor;
 
 class MainWindow : public QMainWindow
 {
@@ -37,13 +40,18 @@ class MainWindow : public QMainWindow
 		~MainWindow();
 
 	private:
+        QWidget *centerWidget;
+        QHBoxLayout *layout;
+        QToolBar *toolbar;
 		Viewer *viewer;
+        Editor *editor;
 		QMenu *file;
 		QAction *open, *exit;
 
 	private Q_SLOTS:
 		void openDHWFile();
 		void drawDHWFileContents( DHWReader *reader );
+        void fitToScreen();
 };
 
 #endif
