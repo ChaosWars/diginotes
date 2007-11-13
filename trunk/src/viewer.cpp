@@ -18,12 +18,23 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include <QMouseEvent>
+#include <QGLWidget>
 #include "viewer.h"
 
-Viewer::Viewer()
+Viewer::Viewer( QWidget *parent ) : QWidget( parent )
 {
 	setupUi( this );
 	graphicsView->setDragMode( QGraphicsView::RubberBandDrag );
+    QGLWidget *glView = new QGLWidget();
+
+    if( glView->isValid() ){
+        graphicsView->setViewport( glView );
+    }else{
+        delete glView;
+    }
+
+    setSceneWidth( width() );
+    setSceneHeight( height() );
 }
 
 Viewer::~Viewer()
@@ -33,4 +44,31 @@ Viewer::~Viewer()
 QGraphicsView* Viewer::getView()
 {
 	return graphicsView;
+}
+
+void Viewer::fitScene()
+{
+    if( graphicsView->scene() ){
+        graphicsView->fitInView( 0, 0, sceneWidth(), sceneHeight(), Qt::KeepAspectRatio );
+    }
+}
+
+int Viewer::sceneWidth()
+{
+    return w;
+}
+
+int Viewer::sceneHeight()
+{
+    return h;
+}
+
+void Viewer::setSceneWidth( int width )
+{
+    w = width;
+}
+
+void Viewer::setSceneHeight( int height )
+{
+    h = height;
 }

@@ -27,9 +27,17 @@ class QMouseEvent;
 class Viewer : public QWidget, Ui::Viewer
 {
 	public:
-		Viewer();
+		Viewer( QWidget *parent = 0 );
 		~Viewer();
 		QGraphicsView* getView();
+        void fitScene();
+        int sceneWidth();
+        int sceneHeight();
+        void setSceneWidth( int width );
+        void setSceneHeight( int height );
+
+    private:
+        int w, h;
 };
 
 #endif // _VIEWER_H_

@@ -8,6 +8,8 @@ src/dhwreader.cpp
 src/dhwreader.h
 src/digipad.cpp
 src/digipad.h
+src/editor.cpp
+src/editor.h
 src/main.cpp
 src/mainwindow.cpp
 src/mainwindow.h
