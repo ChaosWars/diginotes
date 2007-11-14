@@ -77,6 +77,9 @@
         <default/>
       </environments>
     </other>
+    <general>
+      <activedir>src</activedir>
+    </general>
   </kdevcustomproject>
   <kdevfilecreate>
     <filetypes/>
@@ -131,9 +134,7 @@
       <alwaysIncludeNamespaces>false</alwaysIncludeNamespaces>
       <includePaths>.;</includePaths>
     </codecompletion>
-    <references>
-      <pcs>Qt4</pcs>
-    </references>
+    <references/>
     <qt>
       <used>true</used>
       <version>4</version>
