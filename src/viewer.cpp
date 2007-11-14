@@ -43,7 +43,7 @@ Viewer::~Viewer()
 
 QGraphicsView* Viewer::getView()
 {
-	return graphicsView;
+        return graphicsView;
 }
 
 void Viewer::fitScene()

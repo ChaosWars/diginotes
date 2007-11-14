@@ -26,6 +26,7 @@
 #include <QPainterPath>
 #include <QToolBar>
 #include <QHBoxLayout>
+#include <QGLWidget>
 #include "mainwindow.h"
 #include "viewer.h"
 #include "editor.h"
@@ -54,12 +55,15 @@ MainWindow::MainWindow()
     toolbar->addSeparator();
     QAction *fit = new QAction( tr( "F&it" ), this );
     toolbar->addAction( fit );
+    QAction *takeScreen = new QAction( tr( "Take &Screenshot" ), this );
+    toolbar->addAction( takeScreen );
     addToolBar( toolbar );
     statusBar();
 
 	connect( exit, SIGNAL( triggered() ), this, SLOT( close() ) );
 	connect( open, SIGNAL( triggered() ), this, SLOT( openDHWFile() ) );
     connect( fit, SIGNAL( triggered() ), this, SLOT( fitToScreen() ) );
+    connect( takeScreen, SIGNAL( triggered() ), this, SLOT( takeScreenshot() ) );
 
     viewer->update();
 }
@@ -97,6 +101,50 @@ void MainWindow::drawDHWFileContents( DHWReader *reader )
 void MainWindow::fitToScreen()
 {
     viewer->fitScene();
+}
+
+void MainWindow::takeScreenshot()
+{
+    QImage screen( qobject_cast< QGLWidget* >( viewer->getView()->viewport() )->grabFrameBuffer() );
+    QFileDialog fileDialog;
+    QStringList filters;
+    filters << "TIFF Images (*.tiff, *.TIFF)" << "PNG Images (*.png, *.PNG)";
+    fileDialog.setFilters( filters );
+    fileDialog.setDirectory( QDir::homePath() );
+    fileDialog.setFileMode( QFileDialog::AnyFile );
+    fileDialog.setAcceptMode( QFileDialog::AcceptSave );
+    if( fileDialog.exec() == QDialog::Accepted ){
+        bool isTiff = false;
+        QString path = fileDialog.selectedFiles().first();
+
+        if( !path.isEmpty() ){
+
+            if( fileDialog.selectedFilter() == "PNG Images (*.png, *.PNG)" ){
+                if( !path.endsWith( ".png", Qt::CaseInsensitive ) ){
+                        path.append( ".png" );
+                }
+            }else{
+                isTiff = true;
+                if( !path.endsWith( ".tiff", Qt::CaseInsensitive ) ){
+                    path.append( ".tiff" );
+                }
+            }
+
+            QFile file( path );
+
+            if( !file.open( QIODevice::WriteOnly ) )
+                qDebug( "Error opening file for write." );
+
+            if( isTiff ){
+                if( !screen.save( &file, "TIFF" ) )
+                    qDebug( "Error saving screenshot." );
+            }else{
+                if( !screen.save( &file, "PNG" ) )
+                    qDebug( "Error saving screenshot." );
+            }
+
+        }
+    }
 }
 
 #include "mainwindow.moc"

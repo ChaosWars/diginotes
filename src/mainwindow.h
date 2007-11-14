@@ -52,6 +52,7 @@ class MainWindow : public QMainWindow
 		void openDHWFile();
 		void drawDHWFileContents( DHWReader *reader );
         void fitToScreen();
+        void takeScreenshot();
 };
 
 #endif
